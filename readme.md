@@ -1,5 +1,7 @@
 # MR-T
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/syzer/mr-t.svg)](https://greenkeeper.io/)
+
 Cli tool that translates to english
 
 Helpfull if oyu work with people using other languages.

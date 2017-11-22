@@ -1,6 +1,6 @@
 {
   "name": "mr-t",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cli tool that translates to english",
   "main": "index.js",
   "scripts": {
@@ -27,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/syzer/mr-t/issues"
   },
-  "homepage": "https://github.com/syzer/mr-t#readme"
+  "homepage": "https://github.com/syzer/mr-t#readme",
+  "dependencies": {
+    "chrome-remote-interface": "^0.25.3",
+    "lighthouse": "^1.6.5"
+  }
 }

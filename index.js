@@ -35,7 +35,7 @@ const onPageLoad = runtime =>
     })
     .then(({result: {value}}) => console.log(value))
 
-launchChrome(false).then(launcher =>
+launchChrome().then(launcher =>
   chrome(protocol => {
     // @see https://chromedevtools.github.io/devtools-protocol/
     const { Page, Runtime } = protocol

@@ -1,6 +1,6 @@
 {
   "name": "mr-t",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cli tool that translates to english",
   "main": "index.js",
   "scripts": {

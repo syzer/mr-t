@@ -2,7 +2,7 @@
 
 Cli tool that translates to english
 
-Helpfull if oyu work with people using other languages.
+Helpfull if you work with people using other languages.
 
 
 # Install

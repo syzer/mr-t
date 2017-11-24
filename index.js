@@ -14,7 +14,7 @@ const launchChrome = (headless = true) => {
       '--window-size=412,732',
       '--disable-gpu',
       headless ? '--headless' : '',
-      '--max-wait-for-load=3000'
+      '--max-wait-for-load=5000'
     ]
   })
 
@@ -28,12 +28,16 @@ const launchChrome = (headless = true) => {
         }, console.error))
 }
 
+const delay = (result, error) => new Promise((resolve, reject) =>
+  setTimeout(() => result ? resolve(result): reject(error), 600))
+
 const onPageLoad = runtime =>
-  runtime
+  delay(runtime
     .evaluate({
-      expression: "document.querySelector('#result_box').innerText"
-    })
-    .then(({result: {value}}) => console.log(value))
+      expression: `document.querySelector('#result_box').innerText`
+    }))
+    .then(({ result: { value } }) => value)
+    .catch(console.error)
 
 launchChrome().then(launcher =>
   chrome(protocol => {
@@ -52,10 +56,13 @@ launchChrome().then(launcher =>
       // Wait for window.onload before doing stuff.
       Page.loadEventFired(() =>
         onPageLoad(Runtime)
+          .then(console.log)
+          .catch(console.error)
           .then(() => {
             protocol.close()
-            launcher.kill() // Kill Chrome.
+            launcher.kill()
           }))
+
     })
 
   }).on('error', err => {

@@ -1,6 +1,6 @@
 {
   "name": "mr-t",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Cli tool that translates to english",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/syzer/mr-t#readme",
   "dependencies": {
-    "chrome-remote-interface": "^0.25.3",
-    "lighthouse": "^1.6.5"
+    "puppeteer": "^0.13.0"
   }
 }

@@ -1,5 +1,6 @@
 # MR-T
 
+[![npm version](https://badge.fury.io/js/mr-t.svg)](https://badge.fury.io/js/mr-t)
 Cli tool that translates to english
 
 Helpful if you work with people using other languages.
@@ -27,3 +28,9 @@ npm i -g mr-t
 ```bash
 npm test
 ```
+
+# test2
+```bash
+mr-t "Simpego - App-Store - Schreibfehler - Diverse wäre korrekt"
+``` 
+>Simpego - App Store - Typo - Diverse would be correct

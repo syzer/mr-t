@@ -1,6 +1,8 @@
+[![Build Status](https://travis-ci.org/syzer/mr-t.svg?branch=master)](https://travis-ci.org/syzer/mr-t)
+[![npm version](https://badge.fury.io/js/mr-t.svg)](https://badge.fury.io/js/mr-t)
+
 # MR-T
 
-[![npm version](https://badge.fury.io/js/mr-t.svg)](https://badge.fury.io/js/mr-t)
 Cli tool that translates to english
 
 Helpful if you work with people using other languages.

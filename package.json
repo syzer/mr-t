@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/syzer/mr-t#readme",
   "dependencies": {
-    "puppeteer": "^0.13.0"
+    "puppeteer": "^0.13.0",
+    "yargs": "^10.0.3"
   }
 }

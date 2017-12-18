@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const fs = require('fs')
 const toTranslateText = process.argv.slice(2).join(' ')
 const querystring = require('querystring')
 const puppeteer = require('puppeteer')
@@ -18,11 +19,26 @@ async function translate(browser) {
   return text
 }
 
-(async () => {
-  const browser = await puppeteer.launch({
-    headless: true
-  })
-  const text = await translate(browser)
-  console.log(text)
-  browser.close()
-})()
+// require('request-promise')(argv._[0]) :
+// require('fs').createReadStream(argv._[0])
+
+// const pipeIn = argv._[0]
+//   ? argv._[0]
+//   : fs.createReadStream(argv._[0])
+
+console.log(process.stdin)
+
+module.exports = (argv) => {
+  console.log(argv)
+  console.log(argv._[0])
+  // const pipeIn = argv._[0]
+  (async () => {
+    const browser = await puppeteer.launch({
+      headless: true
+    })
+    // const text = await translate(browser)
+    // console.log(text)
+    console.log('text')
+    browser.close()
+  })()
+}

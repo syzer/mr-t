@@ -26,6 +26,15 @@ npm i -g mr-t
 ```
 3. profit!
 
+
+# Usage with streams:
+
+```bash
+echo "Sprache. Kultur" | mr-t
+```
+>Language culture
+
+
 # test
 ```bash
 npm test

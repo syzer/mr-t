@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const toTranslateText = process.argv.slice(2).join(' ')
+const fs = require('fs')
 const querystring = require('querystring')
 const puppeteer = require('puppeteer')
 
-async function translate(browser) {
+async function translate(browser, toTranslateText) {
   let page, text
   try {
     page = await browser.newPage()
@@ -15,14 +15,23 @@ async function translate(browser) {
   } catch (err) {
     console.error(err)
   }
+  browser.close()
+  console.log(text)
   return text
 }
 
-(async () => {
-  const browser = await puppeteer.launch({
-    headless: true
-  })
-  const text = await translate(browser)
-  console.log(text)
-  browser.close()
-})()
+module.exports = (argv) => {
+  (async () => {
+    const browser = await puppeteer.launch({
+      headless: true
+    })
+
+    if (argv._.join(' ')) {
+      await translate(browser, argv._.join(' '))
+    } else {
+      process.stdin.on('data', async text =>
+        await translate(browser, text.toString()))
+    }
+
+  })()
+}

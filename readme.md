@@ -3,9 +3,12 @@
 
 # MR-T
 
-Cli tool that translates to english
+Cli tool that translates to english.
 
 Helpful if you work with people using other languages.
+
+
+![mr-t-image-ascii-version](https://raw.githubusercontent.com/syzer/mr-t/master/mr-t-ascii.jpg)
 
 
 # Install

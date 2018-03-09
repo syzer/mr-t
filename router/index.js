@@ -10,7 +10,7 @@ async function translate(browser, toTranslateText) {
     page = await browser.newPage()
     await page.goto(`https://translate.google.com/#auto/en/${querystring.escape(toTranslateText)}`)
     await page.content()
-    await page.waitFor(400)
+    await page.waitFor(300)
     text = await page.$eval(`#result_box`, e => e.innerText)
   } catch (err) {
     console.error(err)

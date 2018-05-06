@@ -14,7 +14,7 @@ const translate = async (page, toTranslateText) => {
   try {
     await page.goto(`https://translate.google.com/#auto/en/${querystring.escape(toTranslateText)}`)
     // await page.content()
-    await page.waitFor(310)
+    await page.waitFor(440)
     text = await page.$eval(`#result_box`, e => e.innerText)
   } catch (err) {
     console.error({ err })

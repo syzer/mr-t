@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-./index.js Bin leider nicht der Meinung, dass es gut läuft.
+./bin.js Bin leider nicht der Meinung, dass es gut läuft.
 # >Unfortunately, I do not believe that things are going well.
 
-time node index.js "Was immer du tun oder träumen kannnnst, beginne es. Kühnheit hat Genieee, Kraft und Magie."
+time node bin.js "Was immer du tun oder träumen kannnnst, beginne es. Kühnheit hat Genieee, Kraft und Magie."
 # >Whatever you can do or dream, start it. Boldness has genius, strength and magic.
 
 # test streaming capabilities

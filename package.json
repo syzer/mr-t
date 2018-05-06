@@ -1,6 +1,6 @@
 {
   "name": "mr-t",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "description": "Cli tool that translates to english",
   "main": "index.js",
   "scripts": {
@@ -30,6 +30,7 @@
   "homepage": "https://github.com/syzer/mr-t#readme",
   "dependencies": {
     "puppeteer": "^0.13.0",
+    "ramda": "^0.25.0",
     "yargs": "^10.0.3"
   }
 }

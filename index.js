@@ -4,22 +4,25 @@ const querystring = require('querystring')
 const puppeteer = require('puppeteer')
 const { tap, pipeP } = require('ramda')
 
-const retryEmpty = fn => async (...args) => {
-  const result = await fn(...args)
-  return result || await fn(...args)
-}
+const processArray = (arr, fn) =>
+  arr.reduce(
+    (p, v) => p.then((a) => fn(v)
+      .then(r => a.concat([r]))),
+    Promise.resolve([]))
 
 const translate = async (page, toTranslateText) => {
-  let text
-  try {
-    await page.goto(`https://translate.google.com/#auto/en/${querystring.escape(toTranslateText)}`)
-    // await page.content()
-    await page.waitFor(440)
-    text = await page.$eval(`#result_box`, e => e.innerText)
-  } catch (err) {
-    console.error({ err })
-  }
-  return text
+  await page.goto(`https://translate.google.com/#auto/en/`)
+  await page.waitForSelector('#source')
+
+  return await processArray(toTranslateText.match(/.{1,5000}/g), async str => {
+    await page.evaluate(() => {
+      document.querySelector('#source').value = ''
+    })
+    await page.type('#source', str)
+    await page.click('#gt-lang-submit')
+    await page.waitFor(100)
+    return await page.$eval(`#result_box`, e => e.innerText)
+  })
 }
 
 module.exports = (argv) => {
@@ -31,16 +34,16 @@ module.exports = (argv) => {
 
     if (argv._.join(' ')) {
       return pipeP(
-        retryEmpty(translate),
-        tap(console.log),
+        translate,
+        tap(e => console.log(e.join(' '))),
         tap(() => browser.close())
       )(page, argv._.join(' '))
     }
 
     process.stdin.on('data', async text =>
       pipeP(
-        retryEmpty(translate),
-        tap(console.log),
+        translate,
+        tap(e => console.log(e.join(' '))),
         tap(() => browser.close())
       )(page, text.toString()))
   })()

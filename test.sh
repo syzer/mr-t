@@ -10,3 +10,5 @@ time node bin.js "Was immer du tun oder träumen kannnnst, beginne es. Kühnheit
 time echo "Simpego - App-Store - Schreibfehler - Diverse wäre korrekt" | node bin.js
 # >Simpego - App Store - Typo - Diverse would be correct
 
+# test long strings
+time cat testLongString.txt | ./bin.js
